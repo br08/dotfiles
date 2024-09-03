@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-install_packages() {}
+. $PACKAGES/zsh.sh
+
+install_packages() {
+  install_zsh
+}
