@@ -1,0 +1,5 @@
+INSTALL="sudo pacman -Sy --noconfirm"
+UPDATE="sudo pacman -Sy"
+UPGRADE="sudo pacman -Syu --noconfirm"
+REMOVE="sudo pacman -R --noconfirm"
+REMOVE_DEP="sudo pacman -Rns --noconfirm"
