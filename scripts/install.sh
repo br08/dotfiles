@@ -5,6 +5,7 @@ set -e
 . $(dirname "$0")/paths.sh
 . $LIB/helpers.sh
 . $OS/utils.sh
+. $PACKAGES/install.sh
 
 blankln
 info "Initiating setup..."
@@ -16,6 +17,8 @@ if [ -n $OSID ]; then
 else
   fail "Cannot determine the operating system."
 fi
+
+install_packages
 
 info "Setup complete!"
 blankln
