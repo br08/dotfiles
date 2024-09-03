@@ -9,5 +9,10 @@ probe_os() {
 }
 
 source_os_cmds() {
-  . $OS/$OSID
+  if [ -n $OSID ]; then
+    info "\nThe operating system was identified as $OSNAME.\n"
+    . $OS/$OSID
+  else
+    fail "Cannot determine the operating system."
+  fi
 }
