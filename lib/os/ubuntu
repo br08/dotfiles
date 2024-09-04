@@ -1,0 +1,5 @@
+INSTALL="sudo apt install -y"
+UPDATE="sudo apt update"
+UPGRADE="sudo apt upgrade -y"
+REMOVE="sudo apt purge -y"
+REMOVE_DEP="sudo apt autoremove -y"
