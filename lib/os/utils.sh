@@ -10,9 +10,11 @@ probe_os() {
 
 source_os_cmds() {
   if [ -n $OSID ]; then
-    info "\nThe operating system was identified as $OSNAME.\n"
+    info "Operating system identified as $OSNAME."
+    info "Setting installation commands accordingly..."
     . $OS/$OSID
   else
     fail "Cannot determine the operating system."
   fi
+  blankln
 }
