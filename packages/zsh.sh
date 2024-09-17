@@ -7,6 +7,6 @@ install_zsh() {
   blankln
   [ ! -f ~/.zshrc ] && touch ~/.zshrc
   info "Setting zsh as the default shell."
-  chsh -s /bin/zsh
+  sudo sed -i "/^$(whoami):/s|[^:]*$|/bin/zsh|" /etc/passwd
   blankln
 }
