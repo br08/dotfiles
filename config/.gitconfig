@@ -1,0 +1,13 @@
+[user]
+	email =
+	name =
+[core]
+	editor = code --wait
+[pull]
+	ff = only
+	followTags = true
+	rebase = true
+[alias]
+	l = !git log --pretty=format:'%C(yellow)%h %C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
+	stashl = !git stash list --pretty=format:'%C(yellow)%h %C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
+	count = !git shortlog -s --grep
