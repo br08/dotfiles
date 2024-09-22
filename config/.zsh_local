@@ -1,0 +1,27 @@
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+LS_COLORS+=':ow='
+
+function set_default_node() {
+  if [[ $(node -v) != $NODE_DEFAULT ]]; then
+    export NODE_DEFAULT=$(nvm alias default | awk '{print $NF}' | tr -d ')' | sed 's/\x1b\[[0-9;]*m//g')
+  fi
+}
+
+function chpwd() {
+  if [[ -z $NODE_DEFAULT ]]; then
+    set_default_node
+  fi
+
+  if [[ -e .nvmrc ]]; then
+    nvm install
+  else
+    current=$(node -v)
+    if [[ $current != $NODE_DEFAULT ]]; then
+      nvm install --lts
+      set_default_node
+    fi
+  fi
+}
