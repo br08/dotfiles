@@ -9,8 +9,8 @@ info() {
 }
 
 prompt() {
-  local option=$1 text=$2
-  local -n output=$3
+  local option=$1 text=$3
+  local -n output=$2
 
   printf "\r$text\n> "
 
