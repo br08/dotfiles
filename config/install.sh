@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+. $LIB/link.sh
+
 set_git_credentials() {
   local gitname=
   local gitemail=
@@ -15,9 +17,14 @@ set_git_credentials() {
 
 install_dotfiles() {
   info "Installing dotfiles..."
+
+  local overwrite_all=false backup_all=false skip_all=false
+
   for src in $(find "$CONFIG" -maxdepth 1 -type f -not -name 'install.sh')
   do
-    cp $src ~/
+    dst="$HOME/$(basename $src)"
+    link_file "$src" "$dst"
   done
+
   blankln
 }
