@@ -5,7 +5,7 @@ blankln() {
 }
 
 info() {
-  printf "\r%b\n" "$1"
+  printf "\r[\033[00;34m..\033[0m] %b\n" "$1"
 }
 
 prompt() {
@@ -27,6 +27,6 @@ success() {
 }
 
 fail() {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %b\nAborting installation...\n" "$1"
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %b\nAborting script...\n" "$1"
   exit 1
 }
