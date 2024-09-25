@@ -13,8 +13,8 @@ info "Initiating setup..."
 
 probe_os
 source_os_cmds
-install_dotfiles
 install_packages
+install_dotfiles
 set_git_credentials
 
 info "Setup complete!"
