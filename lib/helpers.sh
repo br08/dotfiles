@@ -30,3 +30,7 @@ fail() {
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %b\nAborting script...\n" "$1"
   exit 1
 }
+
+warn () {
+  printf "\r[\033[38;2;215;175;0m!\033[0m] %b\n" "$1"
+}
