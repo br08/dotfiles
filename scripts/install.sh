@@ -1,13 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -e
 
-. $(dirname "$0")/paths.sh
-. $LIB/helpers.sh
-. $LIB/git.sh
-. $OS/utils.sh
-. $PACKAGES/install.sh
-. $CONFIG/install.sh
+. "$(dirname "$0")/paths.sh"
+. "$LIB/helpers.sh"
+. "$LIB/git.sh"
+. "$OS/utils.sh"
+. "$PACKAGES/install.sh"
+. "$CONFIG/install.sh"
 
 blankln
 info "Initiating setup..."

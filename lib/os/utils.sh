@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 probe_os() {
   if [ -f /etc/os-release ]; then
@@ -9,10 +9,10 @@ probe_os() {
 }
 
 source_os_cmds() {
-  if [ -n $OSID ]; then
+  if [ -n "$OSID" ]; then
     info "Operating system identified as $OSNAME."
     info "Setting installation commands accordingly..."
-    . $OS/$OSID
+    . "$OS/$OSID"
   else
     fail "Cannot determine the operating system."
   fi

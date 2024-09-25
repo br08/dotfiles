@@ -1,32 +1,32 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 blankln() {
   echo ''
 }
 
 info() {
-  printf "\r$1\n"
+  printf "\r%s\n" "$1"
 }
 
 prompt() {
-  local option=$1 text=$3
-  local -n output=$2
+  option=$1
+  output=$2
+  text=$3
 
-  printf "\r$text\n> "
+  printf "\r%s\n> " "$text"
 
   case "$option" in
-    -p ) read -p " " output < /dev/tty;;
-    -n ) read -n 1 output < /dev/tty;;
+    -p ) read -r "$output" < /dev/tty ;;
+    -n ) read -r -n 1 "$output" < /dev/tty ;;
     * ) ;;
   esac
 }
 
 success() {
-  printf "\r\033[2K  [\033[00;32mOK\033[0m] $1\n"
+  printf "\r\033[2K  [\033[00;32mOK\033[0m] %s\n" "$1"
 }
 
 fail() {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\nAborting installation..."
-  echo ''
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\nAborting installation...\n" "$1"
   exit 1
 }
