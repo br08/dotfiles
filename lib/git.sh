@@ -1,25 +1,35 @@
 #!/bin/sh
 
+set_credential_helper() {
+  git_credential_helper='cache'
+  if [ "$(uname -s)" == "Darwin" ]
+  then
+    git_credential_helper='osxkeychain'
+  fi
+  git config --global credential.helper "$git_credential_helper"
+}
+
 set_git_name() {
-  prompt -p gitname "\n\rWhat's your Git author name:"
-  git config --global user.name "$gitname"
+  prompt -p git_name "\n\rWhat's your Git author name:"
+  git config --global user.name "$git_name"
 }
 
 set_git_email() {
-  prompt -p gitemail "\n\rWhat's your Git author email:"
-  git config --global user.email "$gitemail"
+  prompt -p git_email "\n\rWhat's your Git author email:"
+  git config --global user.email "$git_email"
 }
 
 set_git_credentials() {
-  gitname=$(git config --global user.name)
-  gitemail=$(git config --global user.email)
+  git_name=$(git config --global user.name)
+  git_email=$(git config --global user.email)
 
-  if [ -z "$gitname" ] || [ -z "$gitemail" ]; then
+  if [ -z "$git_name" ] || [ -z "$git_email" ]; then
     info 'Setting up git credentials...'
   fi
-  
-  [ -z "$gitname" ] && set_git_name
-  [ -z "$gitemail" ] && set_git_email
+
+  set_credential_helper
+  [ -z "$git_name" ] && set_git_name
+  [ -z "$git_email" ] && set_git_email
 
   blankln
 }
