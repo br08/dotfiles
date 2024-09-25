@@ -5,7 +5,7 @@ blankln() {
 }
 
 info() {
-  printf "\r%s\n" "$1"
+  printf "\r%b\n" "$1"
 }
 
 prompt() {
@@ -13,7 +13,7 @@ prompt() {
   output=$2
   text=$3
 
-  printf "\r%s\n> " "$text"
+  printf "\r%b\n> " "$text"
 
   case "$option" in
     -p ) read -r "$output" < /dev/tty ;;
@@ -23,10 +23,10 @@ prompt() {
 }
 
 success() {
-  printf "\r\033[2K  [\033[00;32mOK\033[0m] %s\n" "$1"
+  printf "\r\033[2K  [\033[00;32mOK\033[0m] %b\n" "$1"
 }
 
 fail() {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\nAborting installation...\n" "$1"
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %b\nAborting installation...\n" "$1"
   exit 1
 }

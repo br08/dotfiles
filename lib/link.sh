@@ -11,20 +11,18 @@ link_file() {
 
   if [ -f "$dst" ] || [ -d "$dst" ] || [ -L "$dst" ]; then
     if [ "$overwrite_all" = "false" ] && [ "$backup_all" = "false" ] && [ "$skip_all" = "false" ]; then
-      currentSrc=$(readlink "$dst")
+      currentSrc=$(ls -l "$dst" | awk '{print $NF}')
 
       if [ "$currentSrc" = "$src" ]; then
         skip=true
       else
-        prompt -n action "
-        \rFile already exists: $dst, what do you want to do?
-        
+        prompt -n action "\nFile already exists: $dst, what do you want to do?\n
         \r s)kip,
         \r S)kip all,
         \r o)verwrite,
         \r O)verwrite all,
         \r b)ackup,
-        \r B)ackup all"
+        \r B)ackup all\n"
 
         case "$action" in
           o ) overwrite=true ;;
