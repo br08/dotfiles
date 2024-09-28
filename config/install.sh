@@ -1,7 +1,5 @@
 #!/bin/sh
 
-. "$LIB/link.sh"
-
 install_dotfiles() {
   info "Installing dotfiles..."
 

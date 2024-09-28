@@ -115,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Custom initialization files.
 [[ ! -f ~/.env.zsh ]] || source ~/.env.zsh
+[[ ! -f ~/.git.zsh ]] || source ~/.git.zsh
 [[ ! -f ~/.nvm.zsh ]] || source ~/.nvm.zsh
 
 # This one should always be the last to be loaded.

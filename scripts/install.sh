@@ -2,6 +2,7 @@
 
 . "$(dirname "$0")/paths.sh"
 . "$LIB/helpers.sh"
+. "$LIB/link.sh"
 . "$LIB/git.sh"
 . "$OS/utils.sh"
 . "$PACKAGES/install.sh"
