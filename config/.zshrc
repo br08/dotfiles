@@ -113,4 +113,9 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[[ -f ~/.localrc ]] && source ~/.localrc
+# Custom initialization files.
+[[ ! -f ~/.env.zsh ]] || source ~/.env.zsh
+[[ ! -f ~/.nvm.zsh ]] || source ~/.nvm.zsh
+
+# This one should always be the last to be loaded.
+[[ ! -f ~/.functions.zsh ]] || source ~/.functions.zsh

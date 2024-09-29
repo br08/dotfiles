@@ -1,0 +1,3 @@
+chpwd() {
+  nvm_use
+}
