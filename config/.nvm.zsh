@@ -4,7 +4,7 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm_use() {
   node_default() {
-    nvm alias default | awk '{print $NF}' | tr -d ')' | sed 's/\x1b\[[0-9;]*m//g'
+    nvm alias default | tr -d ')*' | awk '{print $NF}' | sed 's/\x1b\[[0-9;]*m//g'
   }
 
   if [[ -e .nvmrc ]]; then
