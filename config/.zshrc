@@ -118,5 +118,8 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.git.zsh ]] || source ~/.git.zsh
 [[ ! -f ~/.nvm.zsh ]] || source ~/.nvm.zsh
 
+# Custom aliases
+[[ ! -f ~/.aliases.zsh ]] || source ~/.aliases.zsh
+
 # This one should always be the last to be loaded.
 [[ ! -f ~/.functions.zsh ]] || source ~/.functions.zsh
